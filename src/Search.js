@@ -12,7 +12,7 @@ class SearchBooks extends Component {
     searchQuery(search){
         if(search !== '') {
             BooksAPI.search(search).then(bookResults => {
-              if(bookResults !== [] ) {
+              if(!bookResults.hasOwnProperty('error')) {
                   const foundBooks = bookResults.map(fbook => {
                     const index = this.props.books.findIndex(myBook => myBook.id === fbook.id)
                     if(index !== -1) {
@@ -33,7 +33,7 @@ class SearchBooks extends Component {
     }
 
     render() {
-        const {books, onUpdateBook} = this.props
+        const {onUpdateBook} = this.props
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -63,6 +63,7 @@ class SearchBooks extends Component {
                                     <ListBooks 
                                         book={book}
                                         upBook={onUpdateBook}
+                                        key={book.id}
                                     />
                                 )
                             })

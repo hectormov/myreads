@@ -26,6 +26,34 @@ class BooksApp extends React.Component {
     })
   }
 
+  
+  // updateBook = (book, shelf) => {
+  //   BooksAPI.update(book, shelf).then(() => {
+  //     this.setState(currState => {
+  //       if (currState.books.findIndex(myBook => myBook.id === book.id) === -1) {
+  //         console.log('im new')
+  //         return ({
+            
+  //           books: (() => {
+  //             currState.books.push(book)
+  //             return currState.books
+  //           })()
+
+  //         })
+  //       } else {
+  //         return ({
+  //           books: currState.books.map(b => {
+  //             if(b.id === book.id) {
+  //               b.shelf = shelf
+  //             }
+  //             return b
+  //           })
+  //         })
+  //       }
+  //     })
+  //   })
+  // }
+
   updateBook(book, shelf) {
     BooksAPI.update(book, shelf).then(() => {
       console.log('put book: ', book, 'on Shelf: ', shelf)
@@ -48,6 +76,7 @@ class BooksApp extends React.Component {
       }))
     })
   }
+
   
   render() {
     return (

@@ -5,7 +5,6 @@ class BookShelve extends Component {
 
     render() {
         const {books, onUpdateBook} = this.props
-        console.log(books)
         let currentlyReading = books.filter(book => book.shelf === 'currentlyReading')
         let wantToRead = books.filter(book => book.shelf === 'wantToRead')
         let read = books.filter(book => book.shelf === 'read')
@@ -31,6 +30,7 @@ class BookShelve extends Component {
                                         <ListBooks 
                                             book={book}
                                             upBook={onUpdateBook}
+                                            key={shelf.id+book.id}
                                         />
                                     )
                                 })}
